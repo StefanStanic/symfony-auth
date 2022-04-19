@@ -13,9 +13,9 @@ services:
     networks:
       - symfony-auth
     ports:
-      - 10001:80
+      - "10001:80"
     volumes:
-      - ./:/var/www
+      - ./:/var/www:cached
     environment:
       APP_ENV: dev
       DATABASE_URL: mysql://root:root@mysql:3306/symfony-auth?serverVersion=5.7
