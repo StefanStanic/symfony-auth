@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ ad.title }}{% endblock %}
+
+{% block body %}
+	<div class="card" style="width: 18rem; margin: 0 auto">
+		<img src="{{ ad.image }}" class="card-img-top" alt="{{ ad.title }}">
+		<div class="card-body">
+			<h5 class="card-title d-flex justify-content-between">
+				{{ ad.title }} <span class="badge bg-info text-dark">
+					{{ ad.price|format_currency('EUR') }}
+				</span>
+			</h5>
+
+			<p class="card-text">{{ ad.description }}</p>
+			{% if app.user == ad.owner %}
+				<a href="{{ path('ad_edit', {id: ad.id}) }}"><button class="btn btn-warning">Edit</button></a>
+				<a href="{{ path('ad_delete', {id: ad.id}) }}"><button class="btn btn-danger">Delete</button></a>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

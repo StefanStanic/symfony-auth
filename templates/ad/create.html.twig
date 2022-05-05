@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdController!{% endblock %}
+
+{% block body %}
+    <h1>Ad created with id {{ad.id}}</h1>
+    <div class="card" style="width: 18rem;">
+        <img src="{{ ad.image }}" class="card-img-top" alt="{{ ad.title }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ ad.title }}</h5>
+            <p class="card-text">{{ ad.description }}</p>
+        </div>
+    </div>
+{% endblock %}

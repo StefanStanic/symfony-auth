@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All current ads{% endblock %}
+
+{% block body %}
+    <div class="row">
+        {% for ad in ads %}
+        <div class="col-3 g-2">
+            <div class="card">
+                <img src="{{ ad.image }}" class="card-img-top" alt="{{ ad.title }}">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between">{{ ad.title }} <span class="badge bg-info text-dark">{{ ad
+                            .price|format_currency('EUR')
+                            }}</span></h5>
+                    <p class="card-text">{{ ad.description }}</p>
+                    <a href="/ads/{{ad.id}}">
+                        <button class="btn btn-warning">Details</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <li><em>no ad found</em></li>
+        {% endfor %}
+    </div>
+{% endblock %}
