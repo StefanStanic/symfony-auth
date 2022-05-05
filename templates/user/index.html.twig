@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1>Hello {{app.user.email}}</h1>
+
+    <ul>
+        <li><a href="/profile/ads">My ads</a></li>
+    </ul>
+    {{dump(app.user)}}
+{% endblock %}
