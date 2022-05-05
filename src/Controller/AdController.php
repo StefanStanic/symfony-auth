@@ -52,6 +52,7 @@ class AdController extends AbstractController
 
 	/**
 	 * @Route("/ads/edit/{id}", name="ad_edit")
+	 * @IsGranted("ROLE_USER")
 	 * @throws Exception
 	 */
 	public function edit(Ad $ad): Response
@@ -67,6 +68,7 @@ class AdController extends AbstractController
 
 	/**
 	 * @Route("/ads/delete/{id}", name="ad_delete")
+	 * @IsGranted("ROLE_USER")
 	 */
 	public function delete(Ad $ad): RedirectResponse
 		{
