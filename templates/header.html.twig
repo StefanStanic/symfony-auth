@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" href="{{ path('ad_collection') }}">Brick Lane Realty</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="gap: .5rem">
+				<li class="nav-item">
+					<a href="{{path('ad_create')}}"><button class="btn btn-primary">Create ad</button></a>
+				</li>
+				<li class="nav-item">
+					<a href="{{path('ad_collection', {transaction: 'sale'})}}"><button class="btn
+					btn-primary">Sale</button></a>
+				</li>
+				<li class="nav-item">
+					<a href="{{path('ad_collection', {transaction: 'rent'})}}"><button class="btn
+					btn-primary">Rent</button></a>
+				</li>
+			</ul>
+			<div class="d-flex">
+				{% if app.user %}
+					<div class="d-flex align-items-center" style="gap: .5rem">
+						<div class="text-light">
+							Logged in as <a class="text-light" href="{{ path('user_profile') }}">{{ app.user.email }}</a></div>
+							<a href="{{ path('app_logout') }}">
+								<button class="btn btn-primary">Logout</button>
+							</a>
+					</div>
+				{% else %}
+					<a href="{{ path('app_login') }}">
+						<button class="btn btn-primary">Login</button>
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</nav>
